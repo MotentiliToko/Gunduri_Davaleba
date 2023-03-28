@@ -1,19 +1,35 @@
 #include <stdio.h>
 
 class SkillWillAcademy {
-    int NumberOfStudents;
-    int NumOfLecturers;
-    string Subjects;
+    public:
+        int NumberOfStudents;
+        int NumOfLecturers;
+        string Subjects;
 
 };
 
+
 class AbstractLecturer {
-    string Name;
-    string LastName;
-    string Subject;
-    void TeachMethod() {
-        cout << "Lecture is lecturering" << endl;
-    }
+    public:
+        string Name;
+        string LastName;
+        string Subject;
+        void TeachMethod() {
+            cout << "Lecture is lecturering" << endl;
+        }
+};
+
+class skillWillLecturer: public AbstractLecturer {
+    public:
+        void TeachMethod(skillWillSUbject subject) {
+            cout<<"Dr."<<skillWillLecturer.Name<<" "<<skillWillLecturer.LastName << " is conducting a lecture in "<< subject.name<<" from "<<subject.date<<endl;
+        }
+        string Chapter;
+        int Level;
+        void getDescription() {
+            cout << "Lecturer " << Name <<"is on " << Chapter << " chapter" << endl;
+            cout << "Lecturer " << Name << "'s level is " << Level << endl;
+        }
 };
 
 int main()
