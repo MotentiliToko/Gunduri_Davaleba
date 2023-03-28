@@ -48,6 +48,42 @@ class skillwillLecturer: public AbstractLecturer {
         };
 };
 
+class AbstractStudent {
+    public:
+        string Name;
+        string LastName;
+        int Age;
+        string Subject;
+        void AttendsLecture() {
+            cout << "Student is attending a lecture" << endl;
+        }
+};
+
+class skillwillStudent: public AbstractStudent {
+    public:
+        skillwillSubject subject;
+        string Section;
+        string Course;
+        int Score;
+    
+        void getDescription() {
+            cout<<"Student Name: "<< Name << endl;
+            cout<<"Student Lastname: " << LastName << endl;
+            cout<<"Student Age: " << Age << endl;
+            cout<<"Student Section: " << Section << endl;
+            cout<<"Student Course: " << Course << endl;
+            cout<<"Student's current score: " << Score << endl;
+        }
+        void AttendsLecture() {
+            cout<< Name << " " << LastName << " is attending " << subject.Name << " lecture" << endl;
+        }
+        
+        void AttendsLecture(string Name, string Course) {
+            cout << Name << " is attending " << Course << " Lecture" << endl;
+        }
+};
+
+
 int main()
 {
 
