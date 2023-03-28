@@ -1,13 +1,29 @@
 #include <stdio.h>
+#include <iostream>
+using namespace std;
 
 class SkillWillAcademy {
     public:
         int NumberOfStudents;
         int NumOfLecturers;
         string Subjects;
-
 };
 
+class AbstractSubject {
+    public:
+        string Name;
+        int SubjectLength;
+        int StartDate;
+        
+};
+
+class skillwillSubject: public AbstractSubject  {
+    public:
+        string LastLecture;
+        void LastLectureName() {
+            cout << "Headline of the last lecture is "<< LastLecture<< endl;
+        };
+};
 
 class AbstractLecturer {
     public:
@@ -16,20 +32,20 @@ class AbstractLecturer {
         string Subject;
         void TeachMethod() {
             cout << "Lecture is lecturering" << endl;
-        }
+        };
 };
 
-class skillWillLecturer: public AbstractLecturer {
+class skillwillLecturer: public AbstractLecturer {
     public:
-        void TeachMethod(skillWillSUbject subject) {
-            cout<<"Dr."<<skillWillLecturer.Name<<" "<<skillWillLecturer.LastName << " is conducting a lecture in "<< subject.name<<" from "<<subject.date<<endl;
-        }
+        void TeachMethod(skillwillSubject subject) {
+            cout<<"Dr."<< Name<<" "<< LastName << " is conducting a lecture in "<< subject.Name<<" from "<<subject.StartDate<<endl;
+        };
         string Chapter;
         int Level;
         void getDescription() {
             cout << "Lecturer " << Name <<"is on " << Chapter << " chapter" << endl;
             cout << "Lecturer " << Name << "'s level is " << Level << endl;
-        }
+        };
 };
 
 int main()
@@ -37,3 +53,4 @@ int main()
 
     return 0;
 }
+
