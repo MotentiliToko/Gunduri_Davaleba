@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+class SkillWillAcademy {
+    int NumberOfStudents;
+    int NumOfLecturers;
+    string Subjects;
+
+};
+
+class AbstractLecturer {
+    string Name;
+    string LastName;
+    string Subject;
+    void TeachMethod() {
+        cout << "Lecture is lecturering" << endl;
+    }
+};
+
+int main()
+{
+
+    return 0;
+}
