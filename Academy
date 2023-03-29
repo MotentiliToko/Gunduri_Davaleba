@@ -6,7 +6,7 @@ class SkillWillAcademy {
     public:
         int NumberOfStudents;
         int NumOfLecturers;
-        string Subjects;
+        string Subject;
 };
 
 class AbstractSubject {
@@ -65,7 +65,7 @@ class skillwillStudent: public AbstractStudent {
         string Section;
         string Course;
         int Score;
-    
+        int grade;
         void getDescription() {
             cout<<"Student Name: "<< Name << endl;
             cout<<"Student Lastname: " << LastName << endl;
@@ -81,12 +81,23 @@ class skillwillStudent: public AbstractStudent {
         void AttendsLecture(string Name, string Course) {
             cout << Name << " is attending " << Course << " Lecture" << endl;
         }
+        int UpdatedScore(int grade) {
+            Score+=grade;
+            cout << "Updated sum of scores is: " << Score << endl;
+            return Score;
+        }
 };
 
 
 int main()
 {
+    skillwillStudent student1;
+    student1.Score = 100;
+    student1.getDescription();
+    student1.UpdatedScore(50);
+    student1.UpdatedScore(80);
 
+    
     return 0;
 }
 
