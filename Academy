@@ -22,7 +22,7 @@ class skillwillSubject: public AbstractSubject  {
         string LastLecture;
         void LastLectureName() {
             cout << "Headline of the last lecture is "<< LastLecture<< endl;
-        };
+        }
 };
 
 class AbstractLecturer {
@@ -31,21 +31,24 @@ class AbstractLecturer {
         string LastName;
         string Subject;
         void TeachMethod() {
-            cout << "Lecture is lecturering" << endl;
-        };
+            cout << "Lecturer is conducting a lecture" << endl;
+        }
 };
 
 class skillwillLecturer: public AbstractLecturer {
     public:
         void TeachMethod(skillwillSubject subject) {
             cout<<"Dr."<< Name<<" "<< LastName << " is conducting a lecture in "<< subject.Name<<" from "<<subject.StartDate<<endl;
-        };
+        }
+        void TeachMethod() {
+            cout << "Lecturer is conducting a lecture" << endl;
+        }
         string Chapter;
         int Level;
         void getDescription() {
             cout << "Lecturer " << Name <<"is on " << Chapter << " chapter" << endl;
             cout << "Lecturer " << Name << "'s level is " << Level << endl;
-        };
+        }
 };
 
 class AbstractStudent {
@@ -61,7 +64,6 @@ class AbstractStudent {
 
 class skillwillStudent: public AbstractStudent {
     public:
-        skillwillSubject subject;
         string Section;
         string Course;
         int Score;
@@ -74,7 +76,7 @@ class skillwillStudent: public AbstractStudent {
             cout<<"Student Course: " << Course << endl;
             cout<<"Student's current score: " << Score << endl;
         }
-        void AttendsLecture() {
+        void AttendsLecture(skillwillSubject subject) {
             cout<< Name << " " << LastName << " is attending " << subject.Name << " lecture" << endl;
         }
         
@@ -92,12 +94,30 @@ class skillwillStudent: public AbstractStudent {
 int main()
 {
     skillwillStudent student1;
+    student1.Name = "Grisha";
+    student1.LastName = "Kakachia";
+    student1.Age = 35;
+    student1.Section = "c";
+    student1.Course = "Python";
     student1.Score = 100;
     student1.getDescription();
     student1.UpdatedScore(50);
     student1.UpdatedScore(80);
+    skillwillSubject subject1;
+    subject1.Name = "Sql";
+    subject1.StartDate = 2022;
+    student1.AttendsLecture(subject1);
+    student1.AttendsLecture(student1.Name, student1.Course);
+    subject1.LastLecture = "Bazebi";
+    subject1.LastLectureName();
+    skillwillLecturer Lecturer1;
+    Lecturer1.Name = "Luka";
+    Lecturer1.LastName = "Mamardashvili";
+    Lecturer1.TeachMethod();
+    Lecturer1.TeachMethod(subject1);
+    Lecturer1.Chapter = "meore";
+    Lecturer1.Level = 5;
+    Lecturer1.getDescription();
 
-    
     return 0;
 }
-
